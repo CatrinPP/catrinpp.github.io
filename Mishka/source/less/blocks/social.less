@@ -1,0 +1,25 @@
+.social {
+  width: 260px;
+  padding: 25px 42px 22px 37px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  @media (min-width: @tablet-width) {
+    padding: 27px 40px 22px 40px;
+  }
+}
+
+.social__logo {
+  cursor: pointer;
+  fill: #231f20;
+}
+
+.social__link:hover .social__logo {
+  fill: @color-vibrant--darker;
+}
+
+.social__link:active .social__logo {
+  opacity: 0.3;
+}

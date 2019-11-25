@@ -1,0 +1,176 @@
+.video-card {
+  width: 100%;
+
+  border: 1px solid @lighterGrey;
+
+  @media (min-width: @tablet-width) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 46px;
+    padding-top: 0;
+  }
+
+  @media (min-width: @desktop-width) {
+    min-height: 455px;
+    padding: 40px 56px 40px 77px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.video-card__title {
+  position: relative;
+
+  margin: 0;
+  padding: 24px 24px 24px 88px;
+
+  font-size: 17px;
+  line-height: 24px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 30px;
+    left: 32px;
+
+    width: 32px;
+    height: 32px;
+
+    background-image: url("../img/icon-video.svg");
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: @tablet-width) {
+    order: 1;
+    padding: 38px 106px 32px;
+
+    font-size: 20px;
+
+    &::before {
+      top: 32px;
+      left: 40px;
+    }
+  }
+
+  @media (min-width: @desktop-width) {
+    padding: 55px 0 33px;
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.video-card__visual {
+  position: relative;
+
+  @media (min-width: @tablet-width) {
+    order: 0;
+  }
+
+  @media (min-width: @desktop-width) {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+
+    margin-top: -227px;
+  }
+}
+
+.video-card__img {
+  display: block;
+  width: 260px;
+  height: 150px;
+
+  @media (min-width: @tablet-width) {
+    width: 668px;
+    height: 455px;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: 682px;
+  }
+}
+
+.video-card__icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 101px;
+  height: 77px;
+  margin: -36px -50px;
+
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/icon-play.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transition: 0.3s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(0.8);
+    opacity: 0.3;
+    transition: 0.3s;
+  }
+}
+
+.video-card__description {
+  width: 260px;
+  padding: 27px 34px 30px;
+
+  @media (min-width: @tablet-width) {
+    order: 2;
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding: 0;
+  }
+}
+
+.video-card__text {
+  margin: 0;
+  margin-bottom: 25px;
+
+  font-weight: 400;
+  font-size: 13px;
+  color: @color-secondary;
+
+  @media (min-width: @tablet-width) {
+    font-size: 15px;
+    line-height: 30px;
+
+    margin-bottom: 35px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 46px;
+  }
+}
+
+.video-card__btn {
+  width: 100%;
+
+  line-height: 17px;
+
+  @media (min-width: @desktop-width) {
+    width: 230px;
+  }
+}

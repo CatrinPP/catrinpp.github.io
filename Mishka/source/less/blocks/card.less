@@ -1,0 +1,144 @@
+.card {
+  width: 100%;
+
+  @media (min-width: @tablet-width) {
+    display: flex;
+  }
+
+  @media (min-width: @desktop-width) {
+    flex-direction: column;
+    width: 316px;
+  }
+
+  &:hover .card__description,
+  &:focus .card__description {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:active .card__description {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.card__link--name {
+  display: block;
+  margin-bottom: 6px;
+
+  @media (min-width: @tablet-width) {
+    font-size: 20px;
+
+    margin-bottom: 4px;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.card__characteristics {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 30px;
+  color: @color-secondary;
+
+  @media (min-width: @tablet-width) {
+    font-size: 15px;
+  }
+}
+
+.card__price {
+  margin: 0;
+
+  @media (max-width: @tablet-width - 1) {
+    font-size: 15px;
+  }
+}
+
+.card__icon {
+  width: 21px;
+  height: 18px;
+
+  fill: #d3d2d2;
+
+  &:hover,
+  &:focus {
+    fill: @color-vibrant;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.card__img {
+  display: block;
+  width: 260px;
+  height: 195px;
+
+  @media (min-width: @tablet-width) {
+    width: 334px;
+    height: 334px;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: 316px;
+    height: 462px;
+  }
+}
+
+.card__description {
+  padding: 26px 27px;
+
+  border: solid 1px @lighterGrey;
+  background-color: @color-main;
+
+  @media (min-width: @tablet-width) {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 30px;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: 100%;
+    padding: 25px 31px 27px 27px;
+    flex-grow: 1;
+  }
+}
+
+.card__order {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+
+  border-top: 1px solid @lighterGrey;
+
+  @media (min-width: @tablet-width) {
+    padding-left: 4px;
+  }
+
+  @media (min-width: @tablet-width) {
+    padding-left: 0;
+  }
+}
+
+.card__label {
+  padding-bottom: 18px;
+
+  @media (min-width: @tablet-width) {
+    padding-right: 40px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+}

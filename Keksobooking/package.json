@@ -1,0 +1,17 @@
+{
+  "dependencies": {},
+  "description": "Личный проект «Кексобукинг» от HTML Academy",
+  "devDependencies": {
+    "eslint": "6.3.0",
+    "eslint-config-htmlacademy": "0.5.2"
+  },
+  "engines": {
+    "node": "8.11"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "eslint js/"
+  },
+  "version": "15.0.0"
+}

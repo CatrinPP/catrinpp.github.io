@@ -1,0 +1,24 @@
+.wrapper {
+  width: 320px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: @tablet-width) {
+    width: @tablet-width;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: @desktop-width;
+  }
+
+  &--larger-padding {
+    @media (min-width: @desktop-width) {
+      padding-left: 114px;
+      padding-right: 225px;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.logo {
+  &:hover .logo__img,
+  &:focus .logo__img {
+    fill: @color-vibrant--darker;
+  }
+
+  &:active .logo__img,
+  svg:active {
+    opacity: 0.3;
+  }
+
+  &:hover .logo__img--decorated,
+  &:focus .logo__img--decorated {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.logo:active img {
+  opacity: 0.3;
+}
+
+.logo__img {
+  width: 102px;
+  height: 34px;
+
+  cursor: pointer;
+
+  &--decorated {
+    width: 86px;
+    height: 35px;
+
+    @media (min-width: @tablet-width) {
+      width: 110px;
+      height: 46px;
+    }
+
+    @media (min-width: @desktop-width) {
+      width: 150px;
+      height: 72px;
+    }
+  }
+}
