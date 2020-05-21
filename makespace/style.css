@@ -3197,9 +3197,7 @@
     padding: calc(16px * 1.5 * 2) calc(12px * 2) calc(16px * 1.5);
     margin-bottom: calc(16px * 1.5 * 2);
     text-align: center;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(232, 232, 232);
+    background-color: rgb(244, 244, 244) ;
   }
   
   .footer-submit-ticket__title {
@@ -6329,4 +6327,21 @@
   
   .new-post-form {
     margin-bottom: calc(16px * 1.5);
+  }
+
+  .post {
+    display: inline-block;
+    width: 260px;
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .post__title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .post__text {
+    font-size: 14px;
+    color: rgb(117, 117, 117);
   }

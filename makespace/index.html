@@ -541,6 +541,7 @@
 
       </div>
     
+  </div>
 
     
       
@@ -551,10 +552,11 @@
             browse
             </a>
           </h4>
-          <div data-app="recent-activity" data-url="/hc/api/internal/communities/public/recent_activities?locale=en-us" data-scope="Community"></div>
+          <div data-app="recent-activity" data-url="/hc/api/internal/communities/public/recent_activities?locale=en-us" data-scope="Community" id="posts"></div>
         </section>
       
     
+</div>
 
     <section class="footer-submit-ticket">
       <h2 class="footer-submit-ticket__title">Can't find what you're looking
@@ -564,8 +566,6 @@
         <a class="btn btn--primary" href="/hc/en-us/requests/new">Submit a request</a>
       </p>
     </section>
-  </div>
-</div>
   </main>
 
   </div>
@@ -613,10 +613,17 @@
 
 <a href="#" class="scroll-to-top fa fa-angle-up" data-scroll-to-top></a>
 
+  <!-- Шаблон поста -->
+  <template id="post">
+    <div class="post">
+      <p class="post__title"></p>
+      <p class="post__text"></p>
+    </div>
+  </template>
 
   <!-- / -->
 
-  
+
   <script src="//static.zdassets.com/hc/assets/en-us.be408989729313e65097.js"></script>
   <script src="https://lotusthemessergey.zendesk.com/auth/v2/host.js" data-brand-id="360000112560" data-return-to="https://lotus-test.zendesk.com/hc/en-us" data-theme="hc" data-locale="en-us" data-auth-origin="360000112560,false,true"></script>
 
@@ -639,6 +646,6 @@
 
   <script src="//static.zdassets.com/hc/assets/moment-f6f8513da6ab17eadada59a1a4edb536.js"></script>
   <script src="//static.zdassets.com/hc/assets/hc_enduser-39034b7cec34334a439f9b01e9021c9d.js"></script>
-  
+  <script src="./index.js"></script>
 </body>
 </html>
