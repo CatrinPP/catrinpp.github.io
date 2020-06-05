@@ -172,7 +172,7 @@
 
   adForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    window.backend.save(new FormData(adForm), 'https://js.dump.academy/keksobooking', onFormSuccess, onFormError);
+    window.backend.save(new FormData(adForm), 'https://javascript.pages.academy/keksobooking', onFormSuccess, onFormError);
   });
 
   window.form = {

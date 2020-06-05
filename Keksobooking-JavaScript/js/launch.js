@@ -16,7 +16,7 @@
 
   var activatePage = function () {
     window.form.enableFormElements();
-    window.backend.load('https://js.dump.academy/keksobooking/data', onSuccess, onError);
+    window.backend.load('https://javascript.pages.academy/keksobooking/data', onSuccess, onError);
     window.filter.form.style.display = 'flex';
     window.form.activateAdForm();
     window.form.fillAddress(window.map.mainPin.offsetLeft + Math.round(window.map.mainPin.offsetWidth / 2), window.map.mainPin.offsetTop + window.map.mainPin.offsetHeight);
