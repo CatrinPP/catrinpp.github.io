@@ -151,6 +151,7 @@ button:active {
       min-width: auto; } }
   .user-menu__item input {
     width: 150px;
+    font-size: 14px;
     border: none;
     background-color: #feebef; }
     .user-menu__item input::-moz-placeholder {
@@ -194,7 +195,7 @@ button:active {
     .user-menu__item--search::before {
       position: absolute;
       content: "";
-      top: 0;
+      top: 2px;
       left: 0;
       width: 12px;
       height: 13px;
@@ -234,6 +235,9 @@ button:active {
   background-size: cover;
   box-shadow: 0 20px 40px rgba(186, 73, 97, 0.3);
   border: 1px solid rgba(128, 128, 128, 0.1); }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .quiz {
+      background-image: url("../img/bg-dotted@2x.png"); } }
   @media (max-width: 1057px) {
     .quiz {
       width: 100vw; } }
@@ -251,12 +255,19 @@ button:active {
   height: 100%;
   padding: 108px 424px 40px 49px;
   background-image: url("../img/bg-newspaper.png"), url("../img/bg-tinkoff.png"), url("../img/bg-usd.png");
+  background-size: 435px, 93px, 199px;
   background-position: right bottom, 628px 49px, 380px 260px;
   background-repeat: no-repeat; }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .start-window {
+      background-image: url("../img/bg-newspaper@2x.png"), url("../img/bg-tinkoff@2x.png"), url("../img/bg-usd@2x.png"); } }
   @media (max-width: 1023px) {
     .start-window {
       padding: 25px;
       background-image: url("../img/bg-newspaper.png"); } }
+  @media (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1023px) and (min-resolution: 144dpi), (max-width: 1023px) and (min-resolution: 1.5dppx) {
+    .start-window {
+      background-image: url("../img/bg-newspaper@2x.png"); } }
   @media (max-width: 767px) {
     .start-window {
       background-size: 80%; } }
