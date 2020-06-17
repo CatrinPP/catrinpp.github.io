@@ -31,19 +31,20 @@
         Более 250 учебных программ (60 на русском) и возможность стажировки в Израиле.
         В&nbsp;течение освоения программ предусмотрен грант от 4200 до 8400$.</p>
         <div class="about__video">
-          <video width="870" height="460" poster="./img/about-desktop@1x.png"></video>
-          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle opacity="0.32" cx="48" cy="48" r="48" fill="white"></circle>
-            <circle cx="48" cy="48" r="32" fill="white"></circle>
-            <path d="M58 47.5L43 57V38L58 47.5Z" fill="#1FC0FC"></path>
-          </svg>
+          <picture>
+            <source type="image/webp" media="(max-width: 767px)" srcset="./img/about-mobile@1x.webp 1x, ./img/about-mobile@2x.webp 2x">
+            <source type="image/webp" srcset="./img/about-desktop@1x.webp 1x, ./img/about-desktop@2x.webp 2x">
+            <source media="(max-width: 767px)" srcset="./img/about-mobile@1x.png 1x, ./img/about-mobile@2x.png 2x">
+            <img src="./img/about-desktop@1x.png" srcset="./img/about-desktop@2x.png 2x" width="870" height="460" alt="Группа ребят у костра">
+          </picture>
+          <button class="about__play-button" type="button"><span class="visually-hidden">Включить видео</span></button>
         </div>
     </article>
 
     <section class="main__programs  programs">
       <h2>Программы</h2>
       <div class="programs__slider">
-        <div class="programs__item  programs__item  programs__item--general">
+        <div class="programs__item  programs__item--general">
           <input class="visually-hidden" type="radio" name="program" id="general">
           <label for="general">Общие</label>
           <div class="programs__item-description">
@@ -57,7 +58,7 @@
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
         </div>
-        <div class="programs__item  programs__item  programs__item--academy">
+        <div class="programs__item  programs__item--academy">
           <input class="visually-hidden" type="radio" name="program" id="academy" checked="">
           <label for="academy">Академические</label>
           <div class="programs__item-description">
@@ -71,7 +72,7 @@
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
         </div>
-        <div class="programs__item  programs__item  programs__item--internship">
+        <div class="programs__item  programs__item--internship">
           <input class="visually-hidden" type="radio" name="program" id="internship">
           <label for="internship">Стажировки</label>
           <div class="programs__item-description">
@@ -85,7 +86,7 @@
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
         </div>
-        <div class="programs__item  programs__item  programs__item--volunteer">
+        <div class="programs__item  programs__item--volunteer">
           <input class="visually-hidden" type="radio" name="program" id="volunteer">
           <label for="volunteer">Волонтёрство</label>
           <div class="programs__item-description">
@@ -99,7 +100,7 @@
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
         </div>
-        <div class="programs__item  programs__item  programs__item--religion">
+        <div class="programs__item  programs__item--religion">
           <input class="visually-hidden" type="radio" name="program" id="religion">
           <label for="religion">Религиозные</label>
           <div class="programs__item-description">
@@ -116,17 +117,17 @@
       </div>
     </section>
 
-    <section class="main__request  request">
+    <!-- <section class="main__request  request">
       <h2>Хочу поехать!</h2>
       <p>Оставьте свой телефон и мы свяжемся с вами,<br>подберём куратора и ответим на все вопросы!</p>
       <form class="modal__form  form  form--single-input" action="https://echo.htmlacademy.ru" method="POST">
-        <input id="user-tel--request" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required="">
+        <input id="user-tel--request" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required>
         <label for="user-tel--request"></label>
         <button class="button" type="submit">Перезвоните мне</button>
       </form>
-    </section>
+    </section> -->
 
-    <section class="main__preparation  preparation">
+    <!-- <section class="main__preparation  preparation">
       <div class="preparation__content">
         <h2>Как поехать</h2>
         <p>Чтобы узнать подробнее о программе, свяжитесь с координатором в&nbsp;вашем городе.
@@ -175,7 +176,7 @@
         </div>
         <div class="israel__picture">
           <picture>
-            <img src="./img/lifefoto5-desktop@1x.png" width="214" height="318" alt="">
+            <img src="./img/lifefoto5-desktop@1x.png" width="214" height="318"  alt="">
           </picture>
           <p>Развитие лидерства</p>
         </div>
@@ -226,7 +227,7 @@
           </li>
           <li class="faq__item  faq__item--6">
             <button type="button">Как выглдядит полный процесс регистрации на&nbsp;программу «Маса»?</button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p class="visually-hidden" >Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
@@ -238,9 +239,14 @@
       <h2>Отзывы</h2>
       <ul class="reviews__list">
         <li class="reviews__item  review  review--active">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -265,9 +271,14 @@
           </blockquote>
         </li>
         <li class="reviews__item  review">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -292,9 +303,14 @@
           </blockquote>
         </li>
         <li class="reviews__item  review">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -319,9 +335,14 @@
           </blockquote>
         </li>
         <li class="reviews__item  review">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -346,9 +367,14 @@
           </blockquote>
         </li>
         <li class="reviews__item  review">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -373,9 +399,14 @@
           </blockquote>
         </li>
         <li class="reviews__item  review">
-          <picture>
-            <img src="./img/review-desktop@1x.jpg" width="364" height="480" alt="">
-          </picture>
+          <svg viewbox="0 0 354 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <image width="354" height="480" xlink:href="./img/mask-review2.png"/>
+                </mask>
+            </defs>
+            <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask)"/>
+          </svg>
           <blockquote class="review__text">
             <cite>Ольга Михайлова</cite>
             <p><span>Программа:</span> Арт-Тель, февраль-сетнябрь 2017</p>
@@ -437,17 +468,17 @@
         </div>
         <div class="form__fieldset  form__fieldset--line">
           <div class="form__field">
-            <input id="user-name--contacts" name="name" type="text" placeholder="Имя" required="">
+            <input id="user-name--contacts" name="name" type="text" placeholder="Имя" required>
             <label for="user-name--contacts"></label>
           </div>
           <div class="form__field">
-            <input id="user-tel--contacts" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required="">
+            <input id="user-tel--contacts" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required>
             <label for="user-tel--contacts"></label>
           </div>
         </div>
           <button class="button" type="submit">Перезвоните мне</button>
       </form>
-    </section>
+    </section> -->
   </main>
 
   <footer class="page__footer  footer">
