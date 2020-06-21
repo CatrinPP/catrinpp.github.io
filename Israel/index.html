@@ -10,7 +10,10 @@
   <link rel="preload" href="fonts/montserrat-bold.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/raleway-extrabold.woff2" as="font" crossorigin="anonymous">
   <title>Проект "Маса": учеба и стажировка в Израиле</title>
+  <meta name="description" content="Более 250 учебных программ и возможность стажировки в Израиле для еврейской молодежи">
   <link rel="stylesheet" href="./css/style.min.css">
+  <script src="./js/vendor.js"></script>
+  <script>svg4everybody();</script>
 </head>
 <body class="page">
   <header class="page__header  header">
@@ -43,11 +46,16 @@
 
     <section class="main__programs  programs">
       <h2>Программы</h2>
-      <div class="programs__slider">
-        <div class="programs__item  programs__item--general">
-          <input class="visually-hidden" type="radio" name="program" id="general">
-          <label for="general">Общие</label>
-          <div class="programs__item-description">
+      <div class="programs__wrapper">
+        <div class="programs__controls">
+          <button class="programs__button  programs__button--general" type="button" data-title="general">Общие</button>
+          <button class="programs__button  programs__button--active  programs__button--academy" type="button" data-title="academy">Академические</button>
+          <button class="programs__button  programs__button--internship" type="button" data-title="internship">Стажировки</button>
+          <button class="programs__button  programs__button--volunteer" type="button" data-title="volunteer">Волонтерство</button>
+          <button class="programs__button  programs__button--religion" type="button" data-title="religion">Религиозные</button>
+        </div>
+        <div class="programs__list">
+          <div class="programs__item  programs__item--general">
             <h3>Общие</h3>
             <p>Провести семестр или год за рубежом, знакомясь с различными культурами и&nbsp;идеями,
               традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только
@@ -55,13 +63,9 @@
               творческого исследования.</p>
             <p>Может быть, Вы заинтересованы в изучении социологии, мира, юриспруденции, биологии,
               сравнительной религии, законодательного и&nbsp;делового администрирования или искусства?
-              Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
+                Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
-        </div>
-        <div class="programs__item  programs__item--academy">
-          <input class="visually-hidden" type="radio" name="program" id="academy" checked="">
-          <label for="academy">Академические</label>
-          <div class="programs__item-description">
+          <div class="programs__item  programs__item--active  programs__item--academy">
             <h3>Академические</h3>
             <p>Провести семестр или год за рубежом, знакомясь с различными культурами и&nbsp;идеями,
               традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только
@@ -71,11 +75,7 @@
               сравнительной религии, законодательного и&nbsp;делового администрирования или искусства?
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
-        </div>
-        <div class="programs__item  programs__item--internship">
-          <input class="visually-hidden" type="radio" name="program" id="internship">
-          <label for="internship">Стажировки</label>
-          <div class="programs__item-description">
+          <div class="programs__item  programs__item--internship">
             <h3>Стажировки</h3>
             <p>Провести семестр или год за рубежом, знакомясь с различными культурами и&nbsp;идеями,
               традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только
@@ -85,11 +85,7 @@
               сравнительной религии, законодательного и&nbsp;делового администрирования или искусства?
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
-        </div>
-        <div class="programs__item  programs__item--volunteer">
-          <input class="visually-hidden" type="radio" name="program" id="volunteer">
-          <label for="volunteer">Волонтёрство</label>
-          <div class="programs__item-description">
+          <div class="programs__item  programs__item--volunteer">
             <h3>Волонтёрство</h3>
             <p>Провести семестр или год за рубежом, знакомясь с различными культурами и&nbsp;идеями,
               традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только
@@ -99,11 +95,7 @@
               сравнительной религии, законодательного и&nbsp;делового администрирования или искусства?
               Здесь, в Израиле, Вы сможете&nbsp;изучить все это в удивительной университетской среде.</p>
           </div>
-        </div>
-        <div class="programs__item  programs__item--religion">
-          <input class="visually-hidden" type="radio" name="program" id="religion">
-          <label for="religion">Религиозные</label>
-          <div class="programs__item-description">
+          <div class="programs__item  programs__item--religion">
             <h3>Религиозные</h3>
             <p>Провести семестр или год за рубежом, знакомясь с различными культурами и&nbsp;идеями,
               традициями и стилем жизни — вот что такое учеба за границей! Израиль — это не только
@@ -122,7 +114,7 @@
       <p>Оставьте свой телефон и мы свяжемся с вами, подберём куратора и ответим на все вопросы!</p>
       <form class="request__form  form  form--single-input" action="https://echo.htmlacademy.ru" method="POST">
         <input id="user-tel--request" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required="">
-        <label for="user-tel--request"></label>
+        <label for="user-tel--request" aria-label="Введите номер телефона"></label>
         <button class="button" type="submit">Перезвоните мне</button>
       </form>
     </section>
@@ -206,7 +198,7 @@
     </article>
 
     <section class="main__instagram-invitation  instagram-invitation">
-      <div class="instagram-invitaion__content">
+      <div class="instagram-invitation__content">
         <h2>#Masaisrael</h2>
         <p>Познакомьтесь с программой  от&nbsp;первого лица! Многие участники ведут блоги и фотодневники о&nbsp;жизни, учёбе и путешествиях в&nbsp;Израиле.</p>
         <a class="button" href="#"><span>Смотреть фото</span>
@@ -220,23 +212,23 @@
         <h2>Частые вопросы</h2>
         <ul class="faq__list">
           <li class="faq__item  faq__item--1">
-            <button type="button"><span>Кто организатор? Какие сроки у программы?</span>
+            <button class="faq__button" type="button" data-id="1"><span>Кто организатор? Какие сроки у программы?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-down"></use></svg>
             </button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p>Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
           <li class="faq__item  faq__item--2">
-            <button type="button"><span>Что такое грант на обучение?</span>
+            <button class="faq__button" type="button" data-id="2"><span>Что такое грант на обучение?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-down"></use></svg>
             </button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p>Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
           <li class="faq__item  faq__item--3  faq__item--active">
-            <button type="button"><span>Как определяется стоимость программы?</span>
+            <button class="faq__button" type="button" data-id="3"><span>Как определяется стоимость программы?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-up"></use></svg>
             </button>
             <p>Полная стоимость определяется организаторами в зависимости от направления.
@@ -244,26 +236,26 @@
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
           <li class="faq__item  faq__item--4">
-            <button type="button"><span>Что такое грант на обучение?</span>
+            <button class="faq__button" type="button" data-id="4"><span>Что такое грант на обучение?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-down"></use></svg>
             </button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p>Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
           <li class="faq__item  faq__item--5">
-            <button type="button"><span>Признаётся ли учеба в рамках проекта для дальнейшего обучения?</span>
+            <button class="faq__button" type="button" data-id="5"><span>Признаётся ли учеба в рамках проекта для дальнейшего обучения?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-down"></use></svg>
             </button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p>Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
           <li class="faq__item  faq__item--6">
-            <button type="button"><span>Как выглдядит полный процесс регистрации на&nbsp;программу «Маса»?</span>
+            <button class="faq__button" type="button" data-id="6"><span>Как выглдядит полный процесс регистрации на&nbsp;программу «Маса»?</span>
               <svg width="17" height="11"><use xlink:href="./img/sprite_auto.svg#icon-down"></use></svg>
             </button>
-            <p class="visually-hidden">Полная стоимость определяется организаторами в зависимости от направления.
+            <p>Полная стоимость определяется организаторами в зависимости от направления.
               В большинстве случаев грант «Маса» не покрывает полную стоимость программы,
               и поэтому предусматривается определённая доля личного участия.</p>
           </li>
@@ -284,8 +276,8 @@
             <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask-1)"></image>
           </svg>
           <blockquote class="review__text">
-            <cite>Ольга Михайлова</cite>
-            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2017</p>
+            <cite>Татьяна Михайлова</cite>
+            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2018</p>
             <p>Долго выбирая программу, на которую ехать - я определилась, взяла на 5 месяцев «иврит как культура».
               Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и Олега.</p>
             <p>С первой же встречи тебе дают понять - что ты не один, у тебя есть практически круглосуточная поддержка
@@ -295,7 +287,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>1&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            <div class="review__controls">
+              <button class="visually-hidden  review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -319,8 +314,8 @@
             <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask-2)"></image>
           </svg>
           <blockquote class="review__text">
-            <cite>Ольга Михайлова</cite>
-            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2017</p>
+            <cite>Ксения Михайлова</cite>
+            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2016</p>
             <p>Долго выбирая программу, на которую ехать - я определилась, взяла на 5 месяцев «иврит как культура».
               Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и Олега.</p>
             <p>С первой же встречи тебе дают понять - что ты не один, у тебя есть практически круглосуточная поддержка
@@ -330,8 +325,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>2&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
-            <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            <div class="review__controls">
+              <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -366,8 +363,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>3&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
-            <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            <div class="review__controls">
+              <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -391,8 +390,8 @@
             <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask-4)"></image>
           </svg>
           <blockquote class="review__text">
-            <cite>Ольга Михайлова</cite>
-            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2017</p>
+            <cite>Виктория Михайлова</cite>
+            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2015</p>
             <p>Долго выбирая программу, на которую ехать - я определилась, взяла на 5 месяцев «иврит как культура».
               Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и Олега.</p>
             <p>С первой же встречи тебе дают понять - что ты не один, у тебя есть практически круглосуточная поддержка
@@ -402,8 +401,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>4&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
-            <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            <div class="review__controls">
+              <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -427,8 +428,8 @@
             <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask-5)"></image>
           </svg>
           <blockquote class="review__text">
-            <cite>Ольга Михайлова</cite>
-            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2017</p>
+            <cite>Марина Михайлова</cite>
+            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2014</p>
             <p>Долго выбирая программу, на которую ехать - я определилась, взяла на 5 месяцев «иврит как культура».
               Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и Олега.</p>
             <p>С первой же встречи тебе дают понять - что ты не один, у тебя есть практически круглосуточная поддержка
@@ -438,8 +439,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>5&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
-            <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            <div class="review__controls">
+              <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -463,8 +466,8 @@
             <image xlink:href="./img/review-desktop@1x.jpg" width="354" height="480" mask="url(#mask-6)"></image>
           </svg>
           <blockquote class="review__text">
-            <cite>Ольга Михайлова</cite>
-            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2017</p>
+            <cite>Ирина Михайлова</cite>
+            <p><span>Программа:</span> Арт&#8209;Тель,&nbsp;февраль&#8209;сентябрь&nbsp;2016</p>
             <p>Долго выбирая программу, на которую ехать - я определилась, взяла на 5 месяцев «иврит как культура».
               Мне очень повезло оказаться в надежных и заботливых руках Анны, Юлии и Олега.</p>
             <p>С первой же встречи тебе дают понять - что ты не один, у тебя есть практически круглосуточная поддержка
@@ -474,7 +477,10 @@
           </blockquote>
           <section class="review__navigation">
             <p>6&nbsp;/&nbsp;6</p>
-            <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+            <div class="review__controls">
+              <button class="review__button  review__button--previous" type="button" aria-label="Листать назад"></button>
+              <button class="visually-hidden review__button  review__button--next" type="button" aria-label="Листать вперед"></button>
+            </div>
           </section>
           <section class="review__social  social">
             <a class="social__link  social__link--facebook" href="#" aria-label="Профиль в Facebook">
@@ -502,7 +508,7 @@
           <p>Ваш город:</p>
           <button type="button">Новосибирск</button>
         </div>
-        <div class="contacs__supervisor  supervisor">
+        <div class="contacts__supervisor  supervisor">
           <div class="supervisor__details">
             <p><span>Ваш куратор:</span> Анна Горелик</p>
             <p>Новосибирск, ул. Щетинкина 68, культурный центр «Бейт Менахем»</p>
@@ -535,11 +541,11 @@
         <div class="form__fieldset  form__fieldset--line">
           <div class="form__field">
             <input id="user-name--contacts" name="name" type="text" placeholder="Имя" required="">
-            <label for="user-name--contacts"></label>
+            <label for="user-name--contacts" aria-label="Введите свое имя"></label>
           </div>
           <div class="form__field">
             <input id="user-tel--contacts" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required="">
-            <label for="user-tel--contacts"></label>
+            <label for="user-tel--contacts" aria-label="Введите номер телефона"></label>
           </div>
         </div>
           <button class="button" type="submit">Перезвоните мне</button>
@@ -575,11 +581,11 @@
         <div class="form__fieldset">
           <div class="form__field">
             <input id="user-name" name="name" type="text" placeholder="Имя" autofocus="" required="">
-            <label for="user-name"></label>
+            <label for="user-name" aria-label="Введите свое имя"></label>
           </div>
           <div class="form__field">
             <input id="user-tel" name="tel" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" placeholder="Телефон" required="">
-            <label for="user-tel"></label>
+            <label for="user-tel" aria-label="Введите номер телефона"></label>
           </div>
         </div>
         <div class="form__bottom-wrapper">

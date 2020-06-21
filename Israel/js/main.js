@@ -1,6 +1,27 @@
 'use strict';
 
 (function () {
+  /* Проверка поддержки webp */
+  function checkSupport(fn) {
+    var html = document.documentElement;
+    var WebP = new Image();
+
+    WebP.onload = WebP.onerror = function () {
+      var isSupported = (WebP.height === 2);
+
+      if (isSupported) {
+        if (html.className.indexOf('no-webp') >= 0) {
+          html.className = html.className.replace(/\bno-webp\b/, 'webp');
+        } else {
+          html.className += ' webp';
+        }
+      }
+      fn(isSupported);
+    };
+    WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+  }
+
+  checkSupport();
 
   /* Открытие и закрытие модальных окон */
   var ESC_KEYCODE = 27;
@@ -124,4 +145,123 @@
   input.addEventListener('focus', mask, false);
   input.addEventListener('blur', mask, false);
 
+
+  /* Переключение табов программ */
+  var programsControlsBlock = document.querySelector('.programs__controls');
+  var programButtons = programsControlsBlock.querySelectorAll('.programs__button');
+  var programs = document.querySelectorAll('.programs__item');
+
+  function disactivateProgramsButtons() {
+    programButtons.forEach(function (button) {
+      button.classList.remove('programs__button--active');
+    });
+  }
+
+  function hideAllPrograms() {
+    programs.forEach(function (program) {
+      program.classList.remove('programs__item--active');
+    });
+  }
+
+  function showProgram(title) {
+    var programClass = '.programs__item--' + title;
+    document.querySelector(programClass).classList.add('programs__item--active');
+  }
+
+  function onControlsClick(evt) {
+    var title = evt.target.dataset.title;
+    hideAllPrograms();
+    disactivateProgramsButtons();
+    showProgram(title);
+    evt.target.classList.add('programs__button--active');
+  }
+  programsControlsBlock.addEventListener('click', onControlsClick);
+
+  /* Слайдер галереи */
+  var galleryControls = Array.from(document.querySelectorAll('.gallery__control'));
+  var galleryPictures = Array.from(document.querySelectorAll('.gallery__picture'));
+
+  function disactivateGalleryControls() {
+    galleryControls.forEach(function (control) {
+      control.classList.remove('gallery__control--active');
+    });
+  }
+
+  function hideAllGalleryPictures() {
+    galleryPictures.forEach(function (picture) {
+      picture.classList.remove('gallery__picture--active');
+    });
+  }
+
+  function showPicture(index) {
+    galleryPictures[index].classList.add('gallery__picture--active');
+  }
+
+  function onGalleryControlClick(evt) {
+    evt.preventDefault();
+    var index = galleryControls.indexOf(evt.target);
+    disactivateGalleryControls();
+    evt.target.classList.add('gallery__control--active');
+    hideAllGalleryPictures();
+    showPicture(index);
+  }
+
+  galleryControls.forEach(function (control) {
+    control.addEventListener('click', onGalleryControlClick);
+  });
+
+  /* Аккордеон FAQ */
+  var faqButtons = document.querySelectorAll('.faq__button');
+
+  function toggleFaqItemStatus(id) {
+    var faqItemClassName = '.faq__item--' + id;
+    document.querySelector(faqItemClassName).classList.toggle('faq__item--active');
+  }
+
+  function onFaqButtonClick(evt) {
+    evt.preventDefault();
+    var id = evt.currentTarget.dataset.id;
+    toggleFaqItemStatus(id);
+  }
+
+  faqButtons.forEach(function (button) {
+    button.addEventListener('click', onFaqButtonClick);
+  });
+
+  /* Слайдер отзывы */
+  var reviews = Array.from(document.querySelectorAll('.review'));
+  var previousButtons = Array.from(document.querySelectorAll('.review__button--previous'));
+  var nextButtons = Array.from(document.querySelectorAll('.review__button--next'));
+
+  function hideAllReviews() {
+    reviews.forEach(function (review) {
+      review.classList.remove('review--active');
+    });
+  }
+
+  function showReview(index) {
+    reviews[index].classList.add('review--active');
+  }
+
+  function onPreviousButtonClick(evt) {
+    evt.preventDefault();
+    hideAllReviews();
+    var index = previousButtons.indexOf(evt.target);
+    showReview(index - 1);
+  }
+
+  function onNextButtonClick(evt) {
+    evt.preventDefault();
+    hideAllReviews();
+    var index = nextButtons.indexOf(evt.target);
+    showReview(index + 1);
+  }
+
+  previousButtons.forEach(function (button) {
+    button.addEventListener('click', onPreviousButtonClick);
+  });
+
+  nextButtons.forEach(function (button) {
+    button.addEventListener('click', onNextButtonClick);
+  });
 })();
