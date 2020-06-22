@@ -1,27 +1,49 @@
 'use strict';
 
 (function () {
-  /* Проверка поддержки webp */
-  function checkSupport(fn) {
-    var html = document.documentElement;
+  /* Проверка поддержки webp и JS*/
+  var headerElement = document.querySelector('.header');
+  var aboutElement = document.querySelector('.about');
+  var programsElement = document.querySelector('.programs');
+  var requestElement = document.querySelector('.request');
+  var preparationElement = document.querySelector('.preparation');
+  var galleryElement = document.querySelector('.gallery');
+  var invitationElement = document.querySelector('.instagram-invitation');
+  var faqElement = document.querySelector('.faq');
+  var reviewsElement = document.querySelector('.reviews');
+  var contactsElement = document.querySelector('.contacts');
+
+  function checkWebpSupport() {
     var WebP = new Image();
+
+    function renameElement(element) {
+      element.className = element.className.replace(/\bwebp\b/, 'nowebp');
+    }
 
     WebP.onload = WebP.onerror = function () {
       var isSupported = (WebP.height === 2);
 
-      if (isSupported) {
-        if (html.className.indexOf('no-webp') >= 0) {
-          html.className = html.className.replace(/\bno-webp\b/, 'webp');
-        } else {
-          html.className += ' webp';
-        }
+      if (!isSupported) {
+        renameElement(headerElement);
+        renameElement(aboutElement);
+        renameElement(programsElement);
+        renameElement(requestElement);
+        renameElement(preparationElement);
+        renameElement(galleryElement);
+        renameElement(invitationElement);
+        renameElement(faqElement);
+        renameElement(reviewsElement);
+        renameElement(contactsElement);
       }
-      fn(isSupported);
     };
     WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
   }
 
-  checkSupport();
+  faqElement.classList.remove('faq--nojs');
+  galleryElement.classList.remove('gallery--nojs');
+  reviewsElement.classList.remove('reviews--nojs');
+
+  checkWebpSupport();
 
   /* Открытие и закрытие модальных окон */
   var ESC_KEYCODE = 27;
@@ -70,8 +92,11 @@
   };
 
   var onSubmit = function (evt) {
-    localStorage.setItem('userName', evt.target.querySelector('#user-name').value);
-    localStorage.setItem('userTel', evt.target.querySelector('#user-tel').value);
+    evt.preventDefault();
+    var userName = evt.target.querySelector('#user-name') ? evt.target.querySelector('#user-name').value : '';
+    var userTel = evt.target.querySelector('#user-tel') ? evt.target.querySelector('#user-tel').value : '';
+    localStorage.setItem('userName', userName);
+    localStorage.setItem('userTel', userTel);
     evt.preventDefault();
     closeAnyActivePopup();
     openSuccessPopup();
@@ -99,7 +124,7 @@
   callButton.addEventListener('click', onCallButtonClick);
 
   /* Маска для ввода телефона */
-  var input = document.querySelector('#user-tel');
+  var inputs = document.querySelectorAll('input[type="tel"]');
 
   var setCursorPosition = function (position, element) {
     element.focus();
@@ -115,6 +140,7 @@
   };
 
   var mask = function (event) {
+    var input = event.target;
     var matrix = '+7 (___) ___ __ __';
     var index = 0;
     var newValue = matrix.replace(/\D/g, '');
@@ -141,10 +167,15 @@
     }
   };
 
-  input.addEventListener('input', mask, false);
-  input.addEventListener('focus', mask, false);
-  input.addEventListener('blur', mask, false);
+  function setInputsListeners(array) {
+    for (var i = 0; i < array.length; i++) {
+      array[i].addEventListener('input', mask, false);
+      array[i].addEventListener('focus', mask, false);
+      array[i].addEventListener('blur', mask, false);
+    }
+  }
 
+  setInputsListeners(inputs);
 
   /* Переключение табов программ */
   var programsControlsBlock = document.querySelector('.programs__controls');
@@ -152,45 +183,56 @@
   var programs = document.querySelectorAll('.programs__item');
 
   function disactivateProgramsButtons() {
-    programButtons.forEach(function (button) {
-      button.classList.remove('programs__button--active');
-    });
+    for (var i = 0; i < programButtons.length; i++) {
+      programButtons[i].classList.remove('programs__button--active');
+    }
   }
 
   function hideAllPrograms() {
-    programs.forEach(function (program) {
-      program.classList.remove('programs__item--active');
-    });
+    for (var i = 0; i < programs.length; i++) {
+      programs[i].classList.remove('programs__item--active');
+    }
   }
 
   function showProgram(title) {
     var programClass = '.programs__item--' + title;
+
     document.querySelector(programClass).classList.add('programs__item--active');
   }
 
   function onControlsClick(evt) {
-    var title = evt.target.dataset.title;
+    var title;
+
     hideAllPrograms();
     disactivateProgramsButtons();
+
+    if (evt.target.tagName === 'BUTTON') {
+      title = evt.target.dataset.title;
+      evt.target.classList.add('programs__button--active');
+    } else if (evt.target.tagName === 'SPAN') {
+      title = evt.target.parentElement.dataset.title;
+      evt.target.parentElement.classList.add('programs__button--active');
+    }
+
     showProgram(title);
-    evt.target.classList.add('programs__button--active');
   }
+
   programsControlsBlock.addEventListener('click', onControlsClick);
 
   /* Слайдер галереи */
-  var galleryControls = Array.from(document.querySelectorAll('.gallery__control'));
-  var galleryPictures = Array.from(document.querySelectorAll('.gallery__picture'));
+  var galleryControls = document.querySelectorAll('.gallery__control');
+  var galleryPictures = document.querySelectorAll('.gallery__picture');
 
   function disactivateGalleryControls() {
-    galleryControls.forEach(function (control) {
-      control.classList.remove('gallery__control--active');
-    });
+    for (var i = 0; i < galleryControls.length; i++) {
+      galleryControls[i].classList.remove('gallery__control--active');
+    }
   }
 
   function hideAllGalleryPictures() {
-    galleryPictures.forEach(function (picture) {
-      picture.classList.remove('gallery__picture--active');
-    });
+    for (var i = 0; i < galleryPictures.length; i++) {
+      galleryPictures[i].classList.remove('gallery__picture--active');
+    }
   }
 
   function showPicture(index) {
@@ -198,45 +240,63 @@
   }
 
   function onGalleryControlClick(evt) {
+    var index;
+
     evt.preventDefault();
-    var index = galleryControls.indexOf(evt.target);
+
+    for (var i = 0; i < galleryControls.length; i++) {
+      if (galleryControls.item(i) === evt.target) {
+        index = i;
+      }
+    }
+
     disactivateGalleryControls();
     evt.target.classList.add('gallery__control--active');
     hideAllGalleryPictures();
     showPicture(index);
   }
 
-  galleryControls.forEach(function (control) {
-    control.addEventListener('click', onGalleryControlClick);
-  });
+  function setGalleryControlsListeners() {
+    for (var i = 0; i < galleryControls.length; i++) {
+      galleryControls[i].addEventListener('click', onGalleryControlClick);
+    }
+  }
+
+  setGalleryControlsListeners();
 
   /* Аккордеон FAQ */
   var faqButtons = document.querySelectorAll('.faq__button');
 
   function toggleFaqItemStatus(id) {
     var faqItemClassName = '.faq__item--' + id;
+
     document.querySelector(faqItemClassName).classList.toggle('faq__item--active');
   }
 
   function onFaqButtonClick(evt) {
-    evt.preventDefault();
     var id = evt.currentTarget.dataset.id;
+
+    evt.preventDefault();
     toggleFaqItemStatus(id);
   }
 
-  faqButtons.forEach(function (button) {
-    button.addEventListener('click', onFaqButtonClick);
-  });
+  function setFaqButtonsListeners() {
+    for (var i = 0; i < faqButtons.length; i++) {
+      faqButtons[i].addEventListener('click', onFaqButtonClick);
+    }
+  }
+
+  setFaqButtonsListeners();
 
   /* Слайдер отзывы */
-  var reviews = Array.from(document.querySelectorAll('.review'));
-  var previousButtons = Array.from(document.querySelectorAll('.review__button--previous'));
-  var nextButtons = Array.from(document.querySelectorAll('.review__button--next'));
+  var reviews = document.querySelectorAll('.review');
+  var previousButtons = document.querySelectorAll('.review__button--previous');
+  var nextButtons = document.querySelectorAll('.review__button--next');
 
   function hideAllReviews() {
-    reviews.forEach(function (review) {
-      review.classList.remove('review--active');
-    });
+    for (var i = 0; i < reviews.length; i++) {
+      reviews[i].classList.remove('review--active');
+    }
   }
 
   function showReview(index) {
@@ -244,24 +304,47 @@
   }
 
   function onPreviousButtonClick(evt) {
+    var index;
+
     evt.preventDefault();
     hideAllReviews();
-    var index = previousButtons.indexOf(evt.target);
+
+    for (var i = 0; i < previousButtons.length; i++) {
+      if (previousButtons.item(i) === evt.target) {
+        index = i;
+      }
+    }
+
     showReview(index - 1);
   }
 
   function onNextButtonClick(evt) {
+    var index;
+
     evt.preventDefault();
     hideAllReviews();
-    var index = nextButtons.indexOf(evt.target);
+
+    for (var i = 0; i < nextButtons.length; i++) {
+      if (nextButtons.item(i) === evt.target) {
+        index = i;
+      }
+    }
+
     showReview(index + 1);
   }
 
-  previousButtons.forEach(function (button) {
-    button.addEventListener('click', onPreviousButtonClick);
-  });
+  function setPreviousButtonsListeners() {
+    for (var i = 0; i < previousButtons.length; i++) {
+      previousButtons[i].addEventListener('click', onPreviousButtonClick);
+    }
+  }
 
-  nextButtons.forEach(function (button) {
-    button.addEventListener('click', onNextButtonClick);
-  });
+  function setNextButtonsListeners() {
+    for (var i = 0; i < nextButtons.length; i++) {
+      nextButtons[i].addEventListener('click', onNextButtonClick);
+    }
+  }
+
+  setPreviousButtonsListeners();
+  setNextButtonsListeners();
 })();
