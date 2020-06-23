@@ -139,7 +139,7 @@
     }
   };
 
-  var mask = function (event) {
+  var changeTelephoneInputValue = function (event) {
     var input = event.target;
     var matrix = '+7 (___) ___ __ __';
     var index = 0;
@@ -169,9 +169,9 @@
 
   function setInputsListeners(array) {
     for (var i = 0; i < array.length; i++) {
-      array[i].addEventListener('input', mask, false);
-      array[i].addEventListener('focus', mask, false);
-      array[i].addEventListener('blur', mask, false);
+      array[i].addEventListener('input', changeTelephoneInputValue, false);
+      array[i].addEventListener('focus', changeTelephoneInputValue, false);
+      array[i].addEventListener('blur', changeTelephoneInputValue, false);
     }
   }
 
@@ -347,4 +347,17 @@
 
   setPreviousButtonsListeners();
   setNextButtonsListeners();
+
+  /* Якорный скролл */
+  var scroll = document.querySelector('.header__scroll');
+
+  scroll.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    var id = scroll.getAttribute('href');
+
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
 })();
