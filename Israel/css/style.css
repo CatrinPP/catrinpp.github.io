@@ -102,7 +102,7 @@ input[type="radio"].visually-hidden {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: calc(100vw / 1.51);
+  height: calc(100vw / 1.51);
   padding-bottom: 10.5%;
   background-position: center top;
   background-size: 100vw;
@@ -110,6 +110,7 @@ input[type="radio"].visually-hidden {
   @media (max-width: 767px) {
     .header {
       min-height: 605px;
+      padding-bottom: 59px;
       background-size: cover;
       background-position: center 30px; } }
 
@@ -138,6 +139,10 @@ input[type="radio"].visually-hidden {
       background-image: url("../img/bg-main-mobile@2x.webp"), linear-gradient(#ffffff 0%, #ffffff 100px, #c19f88 100px, #c19f88 100%); } }
 
 .header__top {
+  max-width: 1366px;
+  min-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -153,6 +158,10 @@ input[type="radio"].visually-hidden {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 50px 110px 32px; }
+  @media (max-width: 1023px) {
+    .header__top {
+      max-width: auto;
+      min-width: auto; } }
   @media (max-width: 767px) {
     .header__top {
       position: relative;
@@ -166,13 +175,17 @@ input[type="radio"].visually-hidden {
       -webkit-box-align: end;
           -ms-flex-align: end;
               align-items: flex-end;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
       font-size: 14px;
       line-height: 17px; } }
 
 .header__bottom {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
   .header__bottom h1 {
     width: 350px;
     margin: 0 auto 32px;
@@ -184,7 +197,6 @@ input[type="radio"].visually-hidden {
     @media (max-width: 767px) {
       .header__bottom h1 {
         width: 290px;
-        margin-top: 240px;
         font-size: 20px;
         line-height: 24px; } }
 
@@ -199,7 +211,8 @@ input[type="radio"].visually-hidden {
       left: 15px;
       top: 20px;
       width: 120px;
-      height: 42px; } }
+      height: 42px;
+      margin-top: 0; } }
 
 .header__button {
   margin: 0;
@@ -239,9 +252,6 @@ input[type="radio"].visually-hidden {
     width: 76px;
     height: 131px;
     background-image: url("../img/scroll.png"); }
-    @media (max-width: 767px) {
-      .header__scroll::after {
-        top: 415px; } }
 
 .modal {
   position: fixed;
