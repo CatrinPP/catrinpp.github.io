@@ -93,6 +93,10 @@ input[type="radio"].visually-hidden {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto; }
 
+.page__main {
+  max-width: 1366px;
+  margin: 0 auto; }
+
 .header {
   position: relative;
   display: -webkit-box;
@@ -139,10 +143,6 @@ input[type="radio"].visually-hidden {
       background-image: url("../img/bg-main-mobile@2x.webp"), linear-gradient(#ffffff 0%, #ffffff 100px, #c19f88 100px, #c19f88 100%); } }
 
 .header__top {
-  max-width: 1366px;
-  min-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -158,10 +158,6 @@ input[type="radio"].visually-hidden {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 50px 110px 32px; }
-  @media (max-width: 1023px) {
-    .header__top {
-      max-width: auto;
-      min-width: auto; } }
   @media (max-width: 767px) {
     .header__top {
       position: relative;
@@ -180,25 +176,6 @@ input[type="radio"].visually-hidden {
               justify-content: flex-start;
       font-size: 14px;
       line-height: 17px; } }
-
-.header__bottom {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-left: auto;
-  margin-right: auto; }
-  .header__bottom h1 {
-    width: 350px;
-    margin: 0 auto 32px;
-    font-size: 24px;
-    line-height: 29px;
-    font-weight: 700;
-    color: #ffffff;
-    text-align: center; }
-    @media (max-width: 767px) {
-      .header__bottom h1 {
-        width: 290px;
-        font-size: 20px;
-        line-height: 24px; } }
 
 .header__logo {
   width: 137px;
@@ -237,21 +214,33 @@ input[type="radio"].visually-hidden {
   .header__tel {
     margin-bottom: 8px; } }
 
+.header__bottom {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 350px;
+  margin: 0 auto; }
+  .header__bottom h1 {
+    margin: 0 0 32px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center; }
+  @media (max-width: 767px) {
+    .header__bottom {
+      width: 290px; }
+      .header__bottom h1 {
+        font-size: 20px;
+        line-height: 24px; } }
+
 .header__scroll {
-  position: relative;
   display: block;
-  width: 76px;
-  height: 131px;
-  margin-left: auto;
-  margin-right: auto; }
-  .header__scroll::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
+  margin: 0 auto; }
+  .header__scroll img {
+    display: block;
     width: 76px;
     height: 131px;
-    background-image: url("../img/scroll.png"); }
+    margin: 0 auto; }
 
 .modal {
   position: fixed;
@@ -693,7 +682,9 @@ input[type="radio"].visually-hidden {
     font-weight: 700;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    text-align: center; }
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 35px; }
     @media (max-width: 767px) {
       .about h2 {
         font-size: 32px;
@@ -720,7 +711,9 @@ input[type="radio"].visually-hidden {
         padding-left: 16px;
         padding-right: 16px;
         font-size: 16px;
-        line-height: 165%; } }
+        line-height: 165%; }
+      .about h2 {
+        margin-bottom: 25px; } }
 
 .about.nowebp {
   background-image: url("../img/bg-watercolor1-desktop@1x.png"); }
@@ -1610,6 +1603,7 @@ input[type="radio"].visually-hidden {
         text-align: center; }
       .instagram-invitation__content p {
         max-width: 756px;
+        min-height: 130px;
         padding-left: calc(80% - 232px);
         padding-right: 16px;
         margin-bottom: 76px;
@@ -1691,7 +1685,7 @@ input[type="radio"].visually-hidden {
   @media (max-width: 767px) {
     .faq__content {
       padding-left: 16px;
-      padding-right: 16px; }
+      padding-right: 0; }
       .faq__content h2 {
         margin-bottom: 7px; } }
 
@@ -1763,9 +1757,9 @@ input[type="radio"].visually-hidden {
     right: -45px; }
   @media (max-width: 767px) {
     .faq__item {
-      padding: 28px 24px 23px 0; }
+      padding: 28px 0 23px 0; }
       .faq__item button {
-        padding-left: 25px;
+        padding-left: 20px;
         font-size: 16px;
         line-height: 170%; }
       .faq__item p {
