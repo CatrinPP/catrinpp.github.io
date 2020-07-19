@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/roboto-italic.woff2" as="font" crossorigin="anonymous">
+  <title>Верстка mobile светлая и темная тема</title>
+  <meta name="description" content="Верстка mobile светлая и темная тема">
+  <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+  <main class="container">
+    <div class="theme-control">
+      <picture>
+        <source type="image/webp" srcset="img/cat@1x.webp 1x, img/cat@2x.webp 2x">
+        <img src="img/cat@1x.jpg" srcset="img/cat@2x.jpg 2x" aria-label="Переключить тему оформления" tabindex="0" alt="Кот в очках">
+      </picture>
+    </div>
+    <section class="content">
+      <p class="content__header">Ты действительно готов сделать это?</p>
+      <button type="button" class="content__button  button">Git push</button>
+      <a href="#" class="content__link">нет, я уже передумал</a>
+    </section>
+  </main>
+  <script src="./js/main.js"></script>
+</body>
+</html>
