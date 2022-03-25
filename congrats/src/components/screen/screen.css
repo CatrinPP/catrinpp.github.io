@@ -1,0 +1,126 @@
+@keyframes goldShine {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 205px;
+  }
+}
+
+@keyframes goldShineOpacity {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes drift-rotate {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(0, -15px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 5px) rotate(-2deg);
+  }
+}
+
+@keyframes fly-in {
+  0% {
+    transform: translate(-20%, 200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.screen {
+  align-content: start;
+  display: grid;
+  gap: 60px;
+  min-height: 200px;
+  position: relative;
+}
+
+.screen__title {
+  color: #ebcb6d;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.screen__buttons {
+  display: grid;
+  gap: 40px;
+  grid-auto-flow: column;
+}
+
+.screen__button {
+  background: linear-gradient(96.74deg, #FBEDA1 -7.65%, #C7993B 38.3%, #EAD280 99.77%);
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+  padding: 15px;
+  position: relative;
+  text-transform: uppercase;
+  width: 170px;
+}
+
+.screen__button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  transform: translate(-50%, -50%);
+  border-radius: 45px;
+  background: linear-gradient(96.74deg, #C7993B -7.65%, #FBEDA1 46.35%, #CB9F40 102.64%);
+}
+
+.screen__button-text {
+  color: #d70034;
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+  z-index: 5;
+}
+
+.screen__button:hover::after {
+  animation: goldShine 1s ease-in-out, goldShineOpacity .8s ease-in-out .2s;
+}
+
+.screen__animation {
+  animation: fly-in 2s ease-in-out;
+  animation-direction: alternate;
+  position: absolute;
+  transform-origin: 60% 14%;
+  top: 40px;
+  right: 60px;
+  z-index: 1;
+}
+
+.screen__animation-img {
+  height: auto;
+  width: 120px;
+  transform-origin: 60% 14%;
+  animation: drift-rotate 5s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.screen__animation-img_bg {
+  width: 200px;
+}
